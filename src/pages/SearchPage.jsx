@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Col from 'react-bootstrap/Col'
@@ -18,14 +18,13 @@ import { useAsync } from '../hooks/useAsync.js'
 const TYPES = ['albums', 'artists', 'songs']
 const SUGGESTIONS = ['Daft Punk', 'Fela Kuti', 'Sibelius', 'Nightwish', 'Miles Davis', 'Afrobeats']
 
-function SearchPage() {
+function SearchView() {
   // the search lives in the url (?q=...&type=...) so the back button and shared links work
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('q') ?? ''
   const type = TYPES.includes(searchParams.get('type')) ? searchParams.get('type') : 'albums'
 
   const [input, setInput] = useState(query)
-  useEffect(() => setInput(query), [query])
 
   const { data: results, loading, error, retry } = useAsync(
     async () => (query ? searchMusic(query, type) : null),
@@ -35,6 +34,7 @@ function SearchPage() {
   function runSearch(term, nextType = type) {
     const trimmed = term.trim()
     if (!trimmed) return
+    setInput(trimmed)
     setSearchParams({ q: trimmed, type: nextType })
   }
 
@@ -164,6 +164,12 @@ function SearchPage() {
       )}
     </>
   )
+}
+
+// The key resets the text field when the query in the url changes (e.g. back button)
+function SearchPage() {
+  const [searchParams] = useSearchParams()
+  return <SearchView key={searchParams.get('q') ?? ''} />
 }
 
 export default SearchPage
