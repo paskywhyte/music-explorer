@@ -4,7 +4,7 @@ A small React app for searching music and saving the stuff you like. You can sea
 
 Final project for the web development course.
 
-**Live demo:** _add the GitHub Pages link here after deploying_
+**Live demo:** https://paskywhyte.github.io/music-explorer/
 
 ## Features
 
@@ -30,8 +30,8 @@ You need [Node.js](https://nodejs.org/) 20 or newer.
 
 ```bash
 # 1. clone the repository
-git clone https://github.com/<username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/paskywhyte/music-explorer.git
+cd music-explorer
 
 # 2. install dependencies
 npm install
@@ -57,7 +57,7 @@ npm run deploy    # build and publish dist/ to the gh-pages branch
 npm run deploy
 ```
 
-This builds the app and pushes the `dist` folder to a `gh-pages` branch. After the first deploy, go to the repository **Settings → Pages** and choose the `gh-pages` branch as the source. The site will be at `https://<username>.github.io/<repo-name>/`.
+This builds the app and pushes the `dist` folder to a `gh-pages` branch. After the first deploy, go to the repository **Settings → Pages** and choose the `gh-pages` branch as the source. The site will be at `https://paskywhyte.github.io/music-explorer/`.
 
 ## Project structure
 
