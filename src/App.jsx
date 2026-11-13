@@ -5,6 +5,7 @@ import NavBar from './components/NavBar.jsx'
 import { FavouritesProvider } from './context/FavouritesContext.jsx'
 import { PlayerProvider } from './context/PlayerContext.jsx'
 import AlbumPage from './pages/AlbumPage.jsx'
+import ArtistPage from './pages/ArtistPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
 
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<SearchPage />} />
               <Route path="/album/:albumId" element={<AlbumPage />} />
+              <Route path="/artist/:artistId" element={<ArtistPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Container>
