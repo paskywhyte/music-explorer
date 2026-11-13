@@ -1,0 +1,8 @@
+:root {
+  --accent: #ff5c8a;
+}
+
+body {
+  min-height: 100vh;
+  background: #120f1d;
+}
