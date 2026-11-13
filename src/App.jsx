@@ -6,6 +6,7 @@ import { FavouritesProvider } from './context/FavouritesContext.jsx'
 import { PlayerProvider } from './context/PlayerContext.jsx'
 import AlbumPage from './pages/AlbumPage.jsx'
 import ArtistPage from './pages/ArtistPage.jsx'
+import FavouritesPage from './pages/FavouritesPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
 
@@ -21,6 +22,7 @@ function App() {
               <Route path="/" element={<SearchPage />} />
               <Route path="/album/:albumId" element={<AlbumPage />} />
               <Route path="/artist/:artistId" element={<ArtistPage />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Container>
