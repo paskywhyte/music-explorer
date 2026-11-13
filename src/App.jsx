@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
 import { FavouritesProvider } from './context/FavouritesContext.jsx'
 import { PlayerProvider } from './context/PlayerContext.jsx'
+import AlbumPage from './pages/AlbumPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
 
@@ -17,6 +18,7 @@ function App() {
           <Container as="main" className="py-4">
             <Routes>
               <Route path="/" element={<SearchPage />} />
+              <Route path="/album/:albumId" element={<AlbumPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Container>
