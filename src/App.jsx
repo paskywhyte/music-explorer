@@ -1,9 +1,35 @@
+import Container from 'react-bootstrap/Container'
+import { Toaster } from 'react-hot-toast'
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import NavBar from './components/NavBar.jsx'
+import { FavouritesProvider } from './context/FavouritesContext.jsx'
+import { PlayerProvider } from './context/PlayerContext.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
+import SearchPage from './pages/SearchPage.jsx'
+
+// HashRouter is used because GitHub Pages can't redirect unknown paths back to index.html
 function App() {
   return (
-    <main className="container py-5">
-      <h1>Music Explorer</h1>
-      <p className="text-secondary">Project setup works.</p>
-    </main>
+    <HashRouter>
+      <FavouritesProvider>
+        <PlayerProvider>
+          <NavBar />
+          <Container as="main" className="py-4">
+            <Routes>
+              <Route path="/" element={<SearchPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Container>
+          <footer className="text-center small text-secondary py-4">
+            Music data from the iTunes Search API
+          </footer>
+          <Toaster
+            position="bottom-center"
+            toastOptions={{ style: { background: '#2a2340', color: '#fff' } }}
+          />
+        </PlayerProvider>
+      </FavouritesProvider>
+    </HashRouter>
   )
 }
 
